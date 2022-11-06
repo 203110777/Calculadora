@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noelia - Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="col-3" style="margin-top: 10%; margin-left: 30%;"> 
+
+        <div style="margin-top: 5px;">
+            <input type="text" class="form-control" id="resul">
+        </div>
+
+        <div style="margin-top: 5px;">
+            <button class="btn btn-success" onclick="clikB(1)">1</button>
+            <button class="btn btn-primary" onclick="clikB(2)">2</button>
+            <button class="btn btn-warning" onclick="clikB(3)">3</button>
+            <button class="btn btn-dark" onclick="clikB(4)">4</button>
+            <button class="btn btn-danger" onclick="clikB(5)">5</button>
+        </div>
+    
+    
+        <div style="margin-top: 5px;">
+            <button class="btn btn-success" onclick="clikB(6)">6</button>
+            <button class="btn btn-primary" onclick="clikB(7)">7</button>
+            <button class="btn btn-warning" onclick="clikB(8)">8</button>
+            <button class="btn btn-dark" onclick="clikB(9)">9</button>
+            <button class="btn btn-danger" onclick="clikB(0)">0</button>
+        </div>
+
+        <div style="margin-top: 5px;">
+            <button class="btn btn-success" onclick="clearB()">C</button>
+            <button class="btn btn-primary" onclick="sumaB()">+</button>
+            <button class="btn btn-warning" onclick="restaB()">-</button>
+            <button class="btn btn-dark" onclick="mulB()">*</button>
+            <button class="btn btn-danger" onclick="dividB()">/</button>
+        </div>
+        <div style="margin-top: 5px;">
+            <button class="btn btn-success" onclick="potenciaB()">^</button>
+            <button class="btn btn-primary" onclick="raizB()">√</button>
+            <button class="btn btn-warning" onclick="cosB()">cos</button>
+            <button class="btn btn-dark" onclick="tanB()">tan</button>
+            <button class="btn btn-dark" onclick="saludo()">Hola :3</button>
+        </div>
+
+        <div style="margin-top: 5px;">
+            <button class="btn btn-danger" onclick="igualB()" style="width: 100%;">=</button>
+        </div>
+
+    </div>
+
+    <script src="js/jquery.js"></script>
+
+    <script>
+        //$("#resul").val("Hola mundo");
+        var acu = "";
+        var opera = "";
+        var alge = 0;
+
+        //Suma
+        function igualB(){
+            if(alge == 1){
+                sum = parseInt(opera) + parseInt(acu);
+                alge = 0;
+                $("#resul").val( sum );
+                acu = sum;
+            }
+
+            //Resta
+            if(alge==2){
+                sum=parseInt(opera)-parseInt(acu);
+                alge=0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+
+            //Multi
+            if(alge==3){
+                sum=parseInt(opera)*parseInt(acu);
+                alge=0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+
+            //Div
+            if(alge==4){
+                sum=parseInt(opera)/parseInt(acu);
+                alge=0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+
+            //Potencia
+            if(alge==5){
+                sum=Math.pow(parseInt(opera),parseInt(acu));
+                alge=0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+
+            //Raiz
+            if(alge==6){
+                sum=Math.sqrt(parseInt(opera),parseInt(acu));
+                alge=0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+
+
+            //Coseno
+            if(alge==7){
+                sum=Math.cos(parseInt(opera),parseInt(acu));
+                alge=0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+
+
+            //Tangente
+            if(alge==8){
+                sum=Math.tan(parseInt(opera),parseInt(acu));
+                alge=0;
+                $("#resul").val(sum);
+                acu=sum;
+            }
+
+
+        }
+
+        function sumaB(){
+            opera = acu;
+            alge = 1;
+            clearB();
+        }
+
+        function restaB(){
+            opera = acu;
+            alge = 2;
+            clearB();
+        }
+
+        function mulB(){
+            opera = acu;
+            alge = 3;
+            clearB();
+        }
+
+        function dividB(){
+            opera = acu;
+            alge = 4;
+            clearB();
+        }
+
+        function potenciaB(){
+            opera = acu;
+            alge = 5;
+            clearB();
+        }
+
+        function raizB(){
+            opera = acu;
+            alge = 6;
+            clearB();
+        }
+
+        function cosB(){
+            opera = acu;
+            alge = 7;
+            clearB();
+        }
+
+        function tanB(){
+            opera = acu;
+            alge = 8;
+            clearB();
+        }
+
+        function saludo(){
+            $("#resul").val("Viveros Noelia");
+            acu= "";
+        }
+
+        function clikB(valor){
+            //alert(valor);
+            acu = acu + valor;
+            $("#resul").val( acu );
+        }
+
+        function clearB(){
+            $("#resul").val("");
+            acu = "";
+        }
+
+    </script>
+
+</body>
+</html>
